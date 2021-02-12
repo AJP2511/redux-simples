@@ -1,6 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import Card from "./Card";
+import {
+  alterarNumeroMinimo,
+  alteraNumeroMaximo,
+} from "./store/actions/numeros";
 
 const Input = styled.input`
   font-size: 1.8rem;
@@ -9,19 +14,49 @@ const Input = styled.input`
   width: 100px;
 `;
 
-const Intervalo = () => {
+const Intervalo = ({ min, max, alterarMinimo, alteraMaximo }) => {
   return (
     <Card title="Intervalo de números" red>
       <span>
         <strong>Mínimo:</strong>
-        <Input type="text" value={0} />
+        <Input
+          type="text"
+          value={min}
+          onChange={({ target }) => alterarMinimo(+target.value)}
+        />
       </span>
       <span>
         <strong>Máximo:</strong>
-        <Input type="text" value={10} />
+        <Input
+          type="text"
+          value={max}
+          onChange={({ target }) => alteraMaximo(+target.value)}
+        />
       </span>
     </Card>
   );
 };
 
-export default Intervalo;
+const mapStateToProps = (state) => {
+  return {
+    min: state.numeros.min,
+    max: state.numeros.max,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    alterarMinimo(novoNumero) {
+      //ActionCreator -> action
+      const action = alterarNumeroMinimo(novoNumero);
+      dispatch(action);
+    },
+
+    alteraMaximo(novoNumero) {
+      const action = alteraNumeroMaximo(novoNumero);
+      dispatch(action);
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Intervalo);

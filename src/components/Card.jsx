@@ -6,7 +6,7 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 5px;
-  background-color: ${(props) => props.color};
+  background-color: ${(props) => props.bgColor};
 `;
 
 const HeaderContainer = styled.div`
@@ -20,8 +20,8 @@ const ContentContainer = styled.div`
 
 const Title = styled.span`
   padding: 5px;
-  background-color: ${(props) => props.color};
   flex: 1;
+  background-color: ${(props) => props.bgColor};
 `;
 
 const Card = ({ title, ...props }) => {
@@ -30,6 +30,7 @@ const Card = ({ title, ...props }) => {
     if (props.blue) return "#1565c0";
     if (props.green) return "#2e7d32";
     if (props.purple) return "#6c5093";
+    return "";
   }
 
   function getColorTitle() {
@@ -37,12 +38,13 @@ const Card = ({ title, ...props }) => {
     if (props.blue) return "#2196f3";
     if (props.green) return "#4caf50";
     if (props.purple) return "#9c27b0";
+    return "";
   }
 
   return (
-    <CardContainer color={getColorCard}>
+    <CardContainer bgColor={getColorCard}>
       <HeaderContainer>
-        <Title color={getColorTitle}>{title}</Title>
+        <Title bgColor={getColorTitle}>{title}</Title>
       </HeaderContainer>
       <ContentContainer>{props.children}</ContentContainer>
     </CardContainer>
