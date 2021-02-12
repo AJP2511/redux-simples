@@ -4,7 +4,6 @@ import Intervalo from "./components/Intervalo";
 import Soma from "./components/Soma";
 import Media from "./components/Media";
 import Sorteio from "./components/Sorteio";
-import { useState } from "react";
 
 const MainContainer = styled.div`
   display: flex;
