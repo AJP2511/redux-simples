@@ -4,6 +4,7 @@ import Intervalo from "./components/Intervalo";
 import Soma from "./components/Soma";
 import Media from "./components/Media";
 import Sorteio from "./components/Sorteio";
+import { useState } from "react";
 
 const MainContainer = styled.div`
   display: flex;
@@ -20,16 +21,19 @@ const Linha = styled.div`
 `;
 
 function App() {
+  const [min, setMin] = useState(0);
+  const [max, setMax] = useState(0);
+
   return (
     <MainContainer>
       <h1>Exercícios React-Redux (simples)</h1>
       <Linha>
-        <Intervalo />
+        <Intervalo min={min} max={max} setMin={setMin} setMax={setMax} />
       </Linha>
       <Linha>
-        <Soma />
-        <Media />
-        <Sorteio />
+        <Soma min={min} max={max} />
+        <Media min={min} max={max} />
+        <Sorteio min={min} max={max} />
       </Linha>
     </MainContainer>
   );

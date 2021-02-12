@@ -9,16 +9,24 @@ const Input = styled.input`
   width: 100px;
 `;
 
-const Intervalo = () => {
+const Intervalo = ({ min, max, setMin, setMax }) => {
   return (
     <Card title="Intervalo de números" red>
       <span>
         <strong>Mínimo:</strong>
-        <Input type="number" value={0} readOnly />
+        <Input
+          type="text"
+          value={min}
+          onChange={({ target }) => setMin(+target.value)}
+        />
       </span>
       <span>
         <strong>Máximo:</strong>
-        <Input type="number" value={10} readOnly />
+        <Input
+          type="text"
+          value={max}
+          onChange={({ target }) => setMax(+target.value)}
+        />
       </span>
     </Card>
   );
