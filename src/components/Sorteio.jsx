@@ -1,13 +1,12 @@
 import React from "react";
 import Card from "./Card";
 
-const Sorteio = ({ min, max }) => {
-  const randomNumber = Math.floor(Math.random() * (max - min) + min);
+const Sorteio = () => {
   return (
     <Card title="Sorteio de um números" purple>
       <span>
         <span>Resultado:</span>
-        <strong>{randomNumber}</strong>
+        <strong>{7}</strong>
       </span>
     </Card>
   );

@@ -1,12 +1,12 @@
 import React from "react";
 import Card from "./Card";
 
-const Soma = ({ min, max }) => {
+const Soma = () => {
   return (
     <Card title="Soma de números" green>
       <span>
         <span>Resultado:</span>
-        <strong>{min + max}</strong>
+        <strong>{15}</strong>
       </span>
     </Card>
   );

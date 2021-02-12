@@ -1,12 +1,12 @@
 import React from "react";
 import Card from "./Card";
 
-const Media = ({ min, max }) => {
+const Media = () => {
   return (
     <Card title="Média de números" blue>
       <span>
         <span>Resultado:</span>
-        <strong>{(min + max) / 2}</strong>
+        <strong>{5}</strong>
       </span>
     </Card>
   );
